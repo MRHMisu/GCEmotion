@@ -1,6 +1,14 @@
 import re
 from filter.commit_message import CommitMessage
 
+NUMBER_OF_QUALITY_MEASURE = 11
+
+
+def get_normalized_commit_score(commit_hex_string):
+    total_score = calculate_total_commit_score(commit_hex_string)
+    normalized_score = round((total_score / NUMBER_OF_QUALITY_MEASURE), 6)
+    return normalized_score
+
 
 def calculate_total_commit_score(commit_hex_string):
     """
@@ -184,7 +192,8 @@ def number_of_paragraph_in_commit_body(commit_body):
     :return: Normalized score = (ActualScore/MaxScore)
     """
     score = 1
-    count = len(commit_body.splitlines)
+    lines = commit_body.splitlines()
+    count = len(lines)
     if count == 0:
         score = 1
     elif count > 10:

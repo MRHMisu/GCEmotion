@@ -1,6 +1,3 @@
-import sys
-
-
 def get_refactoring_keywords():
     keywords = {"Refactor", "Move", "Split", "Fix", "Introduce", "Decompose", "Reorganize", "Extract", "Merge",
                 "Rename", "Change", "Restructure", "Reformat", "Extend", "Remove", "Replace", "Rewrite", "Simplify",
@@ -35,15 +32,9 @@ def contains_refactoring_like_terms(line):
     keywords = get_refactoring_keywords()
     for kw in keywords:
         if kw in tokens:
-            print('Refactoring Keywords Found')
             return True
     return False
 
 
-def test_refactoring_commit_message():
-    commit_message = "#3232 BUGsds asfdadf asfdadf #323234 Split Split"
-    contains_refactoring_like_terms(commit_message)
-    sys.exit()
-
-
-test_refactoring_commit_message()
+def is_refactoring_commit(commit_message):
+    return contains_refactoring_like_terms(commit_message)

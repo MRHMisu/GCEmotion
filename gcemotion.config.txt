@@ -1,0 +1,6 @@
+[DEFAULT]
+base_data_zip_file = ../data/popular-4K-commit-messages.csv.zip
+base_data_csv_file = popular-4K-commit-messages.csv
+output_refactor_commit_file = /Users/mrhmisu/Repositories/GCEmotion-All/GCEmotion/data/refactoring-commit-message.csv
+output_bugfix_commit_file = /Users/mrhmisu/Repositories/GCEmotion-All/GCEmotion/data/bug-fix-commit-message.csv
+output_others_commit_file = /Users/mrhmisu/Repositories/GCEmotion-All/GCEmotion/data/others-commit-message.csv

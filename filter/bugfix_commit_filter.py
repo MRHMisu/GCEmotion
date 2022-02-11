@@ -1,9 +1,12 @@
 import re
-import sys
 
 
 def pre_process_line(line):
     return line.lower().strip()
+
+
+def is_bug_fix_commit(commit_message):
+    return contains_buggy_keywords(commit_message) or contains_bug_fix_like_terms(commit_message)
 
 
 def contains_bug_or_issue_number(line):
@@ -28,17 +31,6 @@ def contains_buggy_keywords(line):
 def contains_bug_fix_like_terms(line):
     processed_line = pre_process_line(line)
     if contains_bug_or_issue_number(processed_line):
-        print('Number Contains True')
         if contains_buggy_keywords(processed_line):
-            print('Keyword Contains True')
             return True
     return False
-
-
-def test_buggy_commit_message():
-    commit_message = "#3232 BUG asfdadf asfdadf #323234"
-    contains_bug_fix_like_terms(commit_message)
-    sys.exit()
-
-
-test_buggy_commit_message()
